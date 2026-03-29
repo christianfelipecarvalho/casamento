@@ -8,7 +8,8 @@ import { getCategoryInfo, getStatusInfo } from "@/lib/constants";
 import type { Demanda } from "@/lib/types";
 
 function formatDate(dateStr: string) {
-  const date = new Date(dateStr);
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const date = new Date(y, m - 1, d);
   return date.toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "2-digit",
